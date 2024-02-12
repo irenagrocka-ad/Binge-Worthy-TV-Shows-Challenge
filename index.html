@@ -1,421 +1,573 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fiends TV Series</title>
-    <style>
-      body {
-        background-color: black;
-        margin-top: 550px;
-        background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/927/original/Friends3.jpg?1707669176");
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-      }
 
-      .container {
-        display: flex;
-        flex-direction: row; /* Arrange items horizontally */
-        justify-content: space-around;
-        align-items: center;
-        margin-top: 100px;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fiends TV Series</title>
+  <style>
+    body {
+      background-color: black;
+      margin-top: 20px;
+      background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/927/original/Friends3.jpg?1707669176");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
 
-      .container-text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        max-width: 600px;
-        padding: 20px;
-        color: white;
-        align-items: center;
-        text-align: center;
-        margin-top: 100px;
-        margin-left: 50px;
+    .container {
+      display: flex;
+      flex-direction: row;
+      /* Arrange items horizontally */
+      justify-content: space-around;
+      align-items: center;
+    }
 
-        /* Box shadow and backdrop filter for glowing effect */
-        -webkit-box-shadow: 0px 0px 101px 11px rgba(224, 220, 177, 0.97);
-        -moz-box-shadow: 0px 0px 101px 11px rgba(224, 220, 177, 0.97);
-        box-shadow: 0px 0px 101px 11px rgba(224, 220, 177, 0.97);
-        backdrop-filter: blur(16px) saturate(180%);
-        -webkit-backdrop-filter: blur(16px) saturate(180%);
-        background-color: rgba(17, 25, 40, 0.25);
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.125);
-        overflow-x: scroll;
-        /* Enable horizontal scrolling when content overflows */
-        overflow-y: hidden;
-        /* Enable vertical scrolling when content overflows */
-        /* Prevent content from wrapping */
-        scrollbar-width: thin;
-        /* For Firefox */
-        scrollbar-color: transparent transparent;
-        /* For Firefox */
-      }
-      img {
-        width: 50%;
-        height: 50%;
-        border-radius: 20px;
-        display: block;
-        margin: 0 auto;
-        filter: grayscale(100%);
-      }
-      img:hover {
-        filter: grayscale(0%);
-      }
-      .grid {
-        margin: 30px;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-        grid-gap: 15px;
-      }
-      .grid img {
-        width: 100%;
-        height: 100%;
-        transform: all 150ms ease-in-out;
-      }
+    .container-text {
+      display: inline-block;
+      max-width: 600px;
+      padding: 20px;
+      color: white;
+      align-items: center;
+      text-align: center;
+      margin-left: 20px;
 
-      .grid img:hover {
-        transform: scale(1.2);
-      }
- footer{
-    margin-top: 400px;
-    margin-bottom: 300px;
- }
-      .container-carousel {
-        width: 90%;
-        height: 5%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .slider {
-         height: 75px;
-        width:100vw;
-        display: flex;
-        perspective: 1000px;
-        position: relative;
-        align-items: center;
-      }
-      .box1 {
-        background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/966/original/welcome_.jpg?1707676203");
-        width: 25px;
-        height: 25px;
-           margin-right: 100px;
-          margin-left: 100px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-              filter: grayscale(100%);
-      }
-      .box2 {
-        background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/955/original/how_you_doing.jpg?1707673778");
-       width: 25px;
-        height: 25px;
-          margin-right: 100px;
-          margin-left: 100px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-              filter: grayscale(100%);
-      }
-      .box3 {
-        background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/960/original/chandller.jpg?1707674234");
-         width: 25px;
-        height: 25px;
-       margin-right: 100px;
-          margin-left: 100px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-              filter: grayscale(100%);
-      }
-      .box4 {
-        background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/958/original/Fr_they_dont_.jpg?1707674051");
-        background-size: cover;
-             width: 25px;
-        height: 25px;
-           margin-right: 100px;
-          margin-left: 100px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .box5 {
-        background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/967/original/brake.jpg?1707676659");
+      /* Box shadow and backdrop filter for glowing effect */
+      -webkit-box-shadow: 0px 0px 101px 11px rgba(224, 220, 177, 0.97);
+      -moz-box-shadow: 0px 0px 101px 11px rgba(224, 220, 177, 0.97);
+      box-shadow: 0px 0px 101px 11px rgba(224, 220, 177, 0.97);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      background-color: rgba(17, 25, 40, 0.75);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.125);
+      overflow-x: scroll;
+      /* Enable horizontal scrolling when content overflows */
+      overflow-y: hidden;
+      /* Enable vertical scrolling when content overflows */
+      /* Prevent content from wrapping */
+      scrollbar-width: thin;
+      /* For Firefox */
+      scrollbar-color: transparent transparent;
+      /* For Firefox */
+    }
+    form {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 40px;
+
+    }
+    #character-poll img{
+      margin-left: 50px;
+      height: 70%;
+      width: 70%;
+    }
+    #character-poll-list {
+      margin-left: 40px;
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    button{
+      margin:10px;
+      border-radius: 20px;
+      background: orange;
+      color: black;
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px 20px;
+            -webkit-box-shadow: 0px 0px 101px 11px rgba(224, 220, 177, 0.97);
+      -moz-box-shadow: 0px 0px 101px 11px rgba(224, 220, 177, 0.97);
+      box-shadow: 0px 0px 101px 11px rgba(224, 220, 177, 0.97);
+      cursor: pointer;
+    }
+    button:hover {
+            background: black;
+      color: orange;
+
+    }
+    img {
+      width: 50%;
+      height: 50%;
+      border-radius: 20px;
+      display: block;
+      margin: 0 auto;
+      filter: grayscale(100%);
+    }
+
+    img:hover {
+      filter: grayscale(0%);
+    }
+
+    .container img {
+      height: 30%;
+      width: 30%;
+      margin: 5px;
+    }
+
+    .grid {
+      margin: 30px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+      grid-gap: 15px;
+    }
+
+    .grid img {
+      width: 100%;
+      height: 100%;
+      transform: all 150ms ease-in-out;
+    }
+
+    .grid img:hover {
+      transform: scale(1.2);
+    }
+
+    footer {
+      margin-top: 400px;
+      margin-bottom: 300px;
+    }
+
+    .container-carousel {
+      width: 90%;
+      height: 5%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slider {
+      height: 75px;
+      width: 100vw;
+      display: flex;
+      perspective: 1000px;
+      position: relative;
+      align-items: center;
+      filter: grayscale(100%);
+
+    }
+
+    .slider:hover {
+      filter: grayscale(0%);
+
+    }
+
+    .box1 {
+      background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/966/original/welcome_.jpg?1707676203");
       width: 25px;
-        height: 25px;
-           margin-right: 100px;
-          margin-left: 100px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-              filter: grayscale(100%);
-      }
-      .box6 {
-        background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/968/original/chandler_2.gif?1707676686");
-             width: 25px;
-        height: 25px;
-         margin-right: 100px;
-          margin-left: 100px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-              filter: grayscale(100%);
-      }
-      .box7 {
-        background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/961/original/unagi.jpg?1707674304");
-            width: 25px;
-        height: 25px;
+      height: 25px;
       margin-right: 100px;
-          margin-left: 100px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-              filter: grayscale(100%);
-      }
-      .box8 {
-        background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/964/original/pivot.jpg?1707675521");
-            width: 25px;
-        height: 25px;
-        margin-right: 20px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-              filter: grayscale(100%);
-      }
-            .box9 {
-        background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/971/original/monica.jpg?1707677263");
-     width: 25px;
-        height: 25px;
-  margin-right: 100px;
-          margin-left: 100px;;
-        background-repeat: no-repeat;
-        background-position: center center;
-              filter: grayscale(100%);
-      }
-                  .box10 {
-        background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/972/original/lobster.jpg?1707677777");
-          width: 25px;
-        height: 25px;
-  margin-right: 100px;
-          margin-left: 100px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
-              filter: grayscale(100%);
-      }
+      margin-left: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
 
-      .slider [class*="box"] {
-        /*   float: left; */
-        overflow: hidden;
-        border-radius: 20px;
-        transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-        position: absolute;
-      }
-      .slider [class*="box"]:nth-child(10),
-      .slider [class*="box"]:nth-child(1) {
-        width: 100vh;
-        height: 60vh;
-        transform: scale(0.2) translate(-50%, -50%);
-        top: 10%;
-        z-index: 1;
-      }
-      .slider [class*="box"]:nth-child(2),
-      .slider [class*="box"]:nth-child(3) {
-        width: 100vh;
-        height: 60vh;
-        transform: scale(0.4) translate(-50%, -50%);
-        top: 20%;
-        z-index: 2;
-      }
-      .slider [class*="box"]:nth-child(4),
-      .slider [class*="box"]:nth-child(5) {
-        width: 100vh;
-        height: 60vh;
-        transform: scale(0.6) translate(-50%, -50%);
-        top: 30%;
-        z-index: 3;
-      }
-      .slider [class*="box"]:nth-child(6),
-      .slider [class*="box"]:nth-child(7) {
-        width: 60vw;
-        height: 60vh;
-        border-color: #c92026;
-        color: #fff;
-        transform: scale(1) translate(-50%, -50%);
-        top: 50%;
-        z-index: 4;
-      }
-            .slider [class*="box"]:nth-child(8),
-      .slider [class*="box"]:nth-child(9) {
-        width: 60vw;
-        height: 60vh;
-        border-color: #c92026;
-        color: #fff;
-        transform: scale(1) translate(-50%, -50%);
-        top: 50%;
-        z-index: 5;
-      }
-      .slider [class*="box"]:nth-child(1) {
-        left: -200%;
-      }
-      .slider [class*="box"]:nth-child(2) {
-        left: -175%;
-      }
-      .slider [class*="box"]:nth-child(3) {
-        left: -150%;
-      }
-      .slider [class*="box"]:nth-child(4) {
-        left: -125%;
-      }
-      .slider [class*="box"]:nth-child(5) {
-        left: -100%;
-      }
-      .slider [class*="box"]:nth-child(6) {
-        left:  -75%;
-      }
-      .slider [class*="box"]:nth-child(7) {
-        left: -50%;
-      }
-      .slider [class*="box"]:nth-child(8) {
-        left: 0%;
-      }
-           .slider [class*="box"]:nth-child(9) {
-        left: 50%;
-      }
-           .slider [class*="box"]:nth-child(10) {
+    }
+
+    .box2 {
+      background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/955/original/how_you_doing.jpg?1707673778");
+      width: 25px;
+      height: 25px;
+      margin-right: 100px;
+      margin-left: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+    }
+
+    .box3 {
+      background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/960/original/chandller.jpg?1707674234");
+      width: 25px;
+      height: 25px;
+      margin-right: 100px;
+      margin-left: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+    }
+
+    .box4 {
+      background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/958/original/Fr_they_dont_.jpg?1707674051");
+      background-size: cover;
+      width: 25px;
+      height: 25px;
+      margin-right: 100px;
+      margin-left: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .box5 {
+      background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/967/original/brake.jpg?1707676659");
+      width: 25px;
+      height: 25px;
+      margin-right: 100px;
+      margin-left: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+    }
+
+    .box6 {
+      background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/968/original/chandler_2.gif?1707676686");
+      width: 25px;
+      height: 25px;
+      margin-right: 100px;
+      margin-left: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+    }
+
+    .box7 {
+      background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/961/original/unagi.jpg?1707674304");
+      width: 25px;
+      height: 25px;
+      margin-right: 100px;
+      margin-left: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+    }
+
+    .box8 {
+      background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/964/original/pivot.jpg?1707675521");
+      width: 25px;
+      height: 25px;
+      margin-right: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+    }
+
+    .box9 {
+      background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/971/original/monica.jpg?1707677263");
+      width: 25px;
+      height: 25px;
+      margin-right: 100px;
+      margin-left: 100px;
+      ;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .box10 {
+      background: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/972/original/lobster.jpg?1707677777");
+      width: 25px;
+      height: 25px;
+      margin-right: 100px;
+      margin-left: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+    }
+
+    .slider [class*="box"] {
+      /*   float: left; */
+      overflow: hidden;
+      border-radius: 20px;
+      transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+      position: absolute;
+    }
+
+    .slider [class*="box"]:nth-child(10),
+    .slider [class*="box"]:nth-child(1) {
+      width: 100vh;
+      height: 60vh;
+      transform: scale(0.2) translate(-50%, -50%);
+      top: 10%;
+      z-index: 1;
+    }
+
+    .slider [class*="box"]:nth-child(2),
+    .slider [class*="box"]:nth-child(3) {
+      width: 100vh;
+      height: 60vh;
+      transform: scale(0.4) translate(-50%, -50%);
+      top: 20%;
+      z-index: 2;
+    }
+
+    .slider [class*="box"]:nth-child(4),
+    .slider [class*="box"]:nth-child(5) {
+      width: 100vh;
+      height: 60vh;
+      transform: scale(0.6) translate(-50%, -50%);
+      top: 30%;
+      z-index: 3;
+    }
+
+    .slider [class*="box"]:nth-child(6),
+    .slider [class*="box"]:nth-child(7) {
+      width: 60vw;
+      height: 60vh;
+      border-color: #c92026;
+      color: #fff;
+      transform: scale(1) translate(-50%, -50%);
+      top: 50%;
+      z-index: 4;
+    }
+
+    .slider [class*="box"]:nth-child(8),
+    .slider [class*="box"]:nth-child(9) {
+      width: 60vw;
+      height: 60vh;
+      border-color: #c92026;
+      color: #fff;
+      transform: scale(1) translate(-50%, -50%);
+      top: 50%;
+      z-index: 5;
+    }
+
+    .slider [class*="box"]:nth-child(1) {
+      left: -200%;
+    }
+
+    .slider [class*="box"]:nth-child(2) {
+      left: -175%;
+    }
+
+    .slider [class*="box"]:nth-child(3) {
+      left: -150%;
+    }
+
+    .slider [class*="box"]:nth-child(4) {
+      left: -125%;
+    }
+
+    .slider [class*="box"]:nth-child(5) {
+      left: -100%;
+    }
+
+    .slider [class*="box"]:nth-child(6) {
+      left: -75%;
+    }
+
+    .slider [class*="box"]:nth-child(7) {
+      left: -50%;
+    }
+
+    .slider [class*="box"]:nth-child(8) {
+      left: 0%;
+    }
+
+    .slider [class*="box"]:nth-child(9) {
+      left: 50%;
+    }
+
+    .slider [class*="box"]:nth-child(10) {
+      left: 100%;
+    }
+
+    .slider .firstSlide {
+      -webkit-animation: firstChild 1s;
+      animation: firstChild 1s;
+    }
+
+    /*Animation for buyers landing page slider*/
+    @-webkit-keyframes firstChild {
+      0% {
         left: 100%;
+        transform: scale(0.2) translate(-50%, -50%);
       }
-      .slider .firstSlide {
-        -webkit-animation: firstChild 1s;
-        animation: firstChild 1s;
-      }
-      /*Animation for buyers landing page slider*/
-      @-webkit-keyframes firstChild {
-        0% {
-          left: 100%;
-          transform: scale(0.2) translate(-50%, -50%);
-        }
-        100% {
-          left: -13%;
-          transform: scale(0.2) translate(-50%, -50%);
-        }
-      }
-      @keyframes firstChild {
-        0% {
-          left: 100%;
-          transform: scale(0.2) translate(-50%, -50%);
-        }
-        100% {
-          left: -13%;
-          transform: scale(0.2) translate(-50%, -50%);
-        }
-      }
-    </style>
-  </head>
 
-  <body>
-    <div class="container">
-      <div class="container-text">
-        <p class="description">
-          <strong>F R I E N D S</strong> is an iconic American television sitcom
-          that aired from 1994 to 2004, captivating audiences worldwide with its
-          blend of humor, heart, and enduring friendships.
-          <br />
-          Set in New York City, the show revolves around a tight-knit group of
-          six friends - Rachel, Ross, Monica, Chandler, Joey, and Phoebe - as
-          they navigate the trials and tribulations of adulthood, careers, and
-          relationships.
-          <br />From Central Perk, their beloved coffeehouse hangout, to their
-          quirky apartments, the series explores the highs and lows of life with
-          wit, charm, and relatable moments. With its memorable catchphrases,
-          unforgettable characters, and timeless comedic situations, "Friends"
-          continues to resonate with audiences, making it a cultural phenomenon
-          that remains beloved by fans old and new. The NBC show first aired on
-          September 22, 1994, and changed television history forever. It also
-          made household names — and, eventually, some of the highest-paid
-          actors on TV — out of its stars: Jennifer Aniston (Rachel Green),
-          Courteney Cox (Monica Geller), Lisa Kudrow (Phoebe Buffay), Matt
-          LeBlanc (Joey Tribbiani), Matthew Perry (Chandler Bing), and David
-          Schwimmer (Ross Geller). More than 52 million Americans watched the
-          “Friends” finale on May 6, 2004, making it the most-watched episode of
-          television in the first decade of the 21st century. We could probably
-          give you 52 million reasons why “Friends” is the world’s favorite
-          sitcom. The long list of big names who guest-starred in “Friends” over
-          the show’s 10-year stint includes Julia Roberts, Bruce Willis, Susan
-          Sarandon, Brooke Shields, Jeff Goldblum and Sean Penn. Rachel’s
-          sisters were played by Reese Witherspoon (Jill) and Christina
-          Applegate (Amy), while a then-unknown Ellen Pompeo. Fans went crazy in
-          late 2018, when the news broke that “Friends” was to leave Netflix in
-          2019. In late 2018, a Change.org petition to bring the show back was
-          launched, #Justice4Friends started trending, and the streaming service
-          subsequently paid a reported $100 million to hold onto the hit.
-          “Friends” remains a favorite with nostalgic 30- and 40-somethings, but
-          it also has a much younger fan base. A new generation of Netflix
-          bingers can still identify with the characters, and a 2019 survey of
-          British children aged nine to 16 found that “Friends” was their
-          favorite series, even though most of them were born long after the
-          final episode aired.
-        </p>
-      </div>
-      <div class="photos-gallery">
-        <div class="grid">
+      100% {
+        left: -13%;
+        transform: scale(0.2) translate(-50%, -50%);
+      }
+    }
+
+    @keyframes firstChild {
+      0% {
+        left: 100%;
+        transform: scale(0.2) translate(-50%, -50%);
+      }
+
+      100% {
+        left: -13%;
+        transform: scale(0.2) translate(-50%, -50%);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="container-text">
+      <p class="description">
+        <span class="freinds-logo">
+          <a href="httphttps://www.workandmoney.com/s/friends-phenomenon-facts-49171987e3854720" target="_blank">
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/922/original/title.jpg?1707668328"
+              alt="Friends logo" /> </a> </span> is an iconic American television sitcom
+        that aired from 1994 to 2004, captivating audiences worldwide with its
+        blend of humor, heart, and enduring friendships.
+        <br />
+        Set in New York City, the show revolves around a tight-knit group of
+        six friends - Rachel, Ross, Monica, Chandler, Joey, and Phoebe - as
+        they navigate the trials and tribulations of adulthood, careers, and
+        relationships. From Central Perk, their beloved coffeehouse hangout, to their
+        quirky apartments, the series explores the highs and lows of life with
+        wit, charm, and relatable moments. With its memorable catchphrases,
+        unforgettable characters, and timeless comedic situations, "Friends"
+        continues to resonate with audiences, making it a cultural phenomenon
+        that remains beloved by fans old and new.<br />
+        The NBC show first aired on September 22, 1994, and changed television history forever. It also
+        made household names — and, eventually, some of the highest-paid
+        actors on TV — out of its stars: Jennifer Aniston (Rachel Green),
+        Courteney Cox (Monica Geller), Lisa Kudrow (Phoebe Buffay), Matt
+        LeBlanc (Joey Tribbiani), Matthew Perry (Chandler Bing), and David
+        Schwimmer (Ross Geller). More than 52 million Americans watched the
+        “Friends” finale on May 6, 2004, making it the most-watched episode of
+        television in the first decade of the 21st century. We could probably
+        give you 52 million reasons why “Friends” is the world’s favorite
+        sitcom.The long list of big names who guest-starred in “Friends” over
+        the show’s 10-year stint includes Julia Roberts, Bruce Willis, Susan
+        Sarandon, Brooke Shields, Jeff Goldblum and Sean Penn. Rachel’s
+        sisters were played by Reese Witherspoon (Jill) and Christina
+        Applegate (Amy), while a then-unknown Ellen Pompeo.
+        <br /> Fans went crazy in late 2018, when the news broke that “Friends” was to leave Netflix in
+        2019. In late 2018, a Change.org petition to bring the show back was
+        launched, #Justice4Friends started trending, and the streaming service
+        subsequently paid a reported $100 million to hold onto the hit.
+        “Friends” remains a favorite with nostalgic 30- and 40-somethings, but
+        it also has a much younger fan base. A new generation of Netflix
+        bingers can still identify with the characters, and a 2019 survey of
+        British children aged nine to 16 found that “Friends” was their
+        favorite series, even though most of them were born long after the
+        final episode aired.
+        <br />
+        Everyone’s Favorite Friend Is…
+        Well, it depends who you ask. According to 117,000 votes on Ranker, Chandler comes out on top,
+        with Joey and Phoebe taking second and third place, respectively. And a poll of U.K. viewers in 2018
+        reached the same conclusion. However, an earlier poll via Comedy Central’s Twitter feed to mark the
+        end of the epic, six-week U.K. Friendsfest in 2016, had a different result. Ross scooped a whopping
+        25.6 percent of the vote, although Chandler came in a close second, with 25.4 percent.
+        (Sorry, Monica and Rachel — we do love you, too.)
+      </p>
+      <hr />
+      <h4>Who is your favorite Friend? </h4>
+      <form id="character-poll">
+        <div id="character-poll-list">
+        <input type="radio" id="chandler" name="character" value="Chandler">
+        <label for="chandler">Chandler</label><br>
+        <input type="radio" id="joey" name="character" value="Joey">
+        <label for="joey">Joey</label><br>
+        <input type="radio" id="monica" name="character" value="Monica">
+        <label for="monica">Monica</label><br>
+        <input type="radio" id="phoebe" name="character" value="Phoebe">
+        <label for="phoebe">Phoebe</label><br>
+        <input type="radio" id="rachel" name="character" value="Rachel">
+        <label for="rachel">Rachel</label><br>
+        <input type="radio" id="ross" name="character" value="Ross">
+        <label for="ross">Ross</label><br>
+        <button type="submit">Vote</button>
+        </div>
+           <div id="character-photo">
+        <img  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/044/original/Friends_question.jpg?1707728874" alt="friends photo"/>
+        </div>
+      </form>
+    </div>
+    <div class="photos-gallery">
+      <div class="grid">
+        <a href="https://www.imdb.com/title/tt0108778/" target="_blank">
           <img
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/939/original/Friends2.jpg?1707671111"
-            alt="Friends photo"
-          />
+            alt="Friends photo" />
+        </a>
+        <a href="https://en.wikipedia.org/wiki/Friends" target="_blank">
           <img
             src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/942/original/Friends5.jpg?1707671383"
-            alt="Friends photo"
-          />
-          <img
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/944/original/Frineds6.jpg?1707671571"
-            alt="Friends photo"
-          />
-          <img
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/938/original/Friends.jpg?1707670404"
-            alt="Friends photo"
-          />
-        </div>
+            alt="Friends photo" />
+        </a>
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/944/original/Frineds6.jpg?1707671571"
+          alt="Friends photo" />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/114/938/original/Friends.jpg?1707670404"
+          alt="Friends photo" />
       </div>
     </div>
-    <footer>
-      <div class="container-carousel">
-        <div class="slider">
-          <div class="box1"></div>
-          <div class="box2"></div>
-          <div class="box3"></div>
-          <div class="box4"></div>
-          <div class="box5"></div>
-          <div class="box6"></div>
-          <div class="box7"></div>
-          <div class="box8"></div>
-                <div class="box9"></div>
-          <div class="box10"></div>
+  </div>
+  <footer>
+    <div class="container-carousel">
+      <div class="slider">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+        <div class="box5"></div>
+        <div class="box6"></div>
+        <div class="box7"></div>
+        <div class="box8"></div>
+        <div class="box9"></div>
+        <div class="box10"></div>
       </div>
       <div id="test"></div>
-    </footer>
+  </footer>
 
-    <script>
-      $(document).ready(function () {
-        function rotate() {
-          var lastChild = $(".slider div:last-child").clone();
-          $(".slider div").removeClass("firstSlide");
-          $(".slider div:last-child").remove();
-          $(".slider").prepend(lastChild);
-          $(lastChild).addClass("firstSlide");
-        }
+  <script>
+    function updateCharacterPhoto() {
+    // Get the selected character
+    var selectedCharacter = document.querySelector('input[name="character"]:checked').value;
+    
+    // Update the image source based on the selected character
+    var characterPhoto = document.getElementById("character-photo").getElementsByTagName("img")[0];
+    switch(selectedCharacter) {
+      case "Chandler":
+        characterPhoto.src = "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/046/original/Chan.jpg?1707730855"; // Replace with the URL of Chandler's photo
+        break;
+      case "Joey":
+        characterPhoto.src = "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/047/original/Joe.jpg?1707730931"; // Replace with the URL of Joey's photo
+        break;
+      case "Monica":
+        characterPhoto.src = "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/048/original/MG.jpg?1707731190"; // Replace with the URL of Monica's photo
+        break;
+      case "Phoebe":
+        characterPhoto.src = "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/049/original/PHB.jpg?1707731377"; // Replace with the URL of Phoebe's photo
+        break;
+      case "Rachel":
+        characterPhoto.src = "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/050/original/RG.jpg?1707731686"; // Replace with the URL of Rachel's photo
+        break;
+      case "Ross":
+        characterPhoto.src = "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/051/original/rossG.jpg?1707731851"; // Replace with the URL of Ross's photo
+        break;
+      default:
+        characterPhoto.src = "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/115/044/original/Friends_question.jpg?1707728874"; // Default photo if no character is selected
+    }
+  }
+  
+  // Add an event listener to the form submission
+  document.getElementById("character-poll").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    
+    // Call the function to update the character photo
+    updateCharacterPhoto();
+  });
+    $(document).ready(function () {
+      function rotate() {
+        var lastChild = $(".slider div:last-child").clone();
+        $(".slider div").removeClass("firstSlide");
+        $(".slider div:last-child").remove();
+        $(".slider").prepend(lastChild);
+        $(lastChild).addClass("firstSlide");
+      }
 
-        window.setInterval(function () {
-          rotate();
-        }, 5000);
-      });
-    </script>
-  </body>
+      window.setInterval(function () {
+        rotate();
+      }, 5000);
+    });
+  </script>
+</body>
+
 </html>
