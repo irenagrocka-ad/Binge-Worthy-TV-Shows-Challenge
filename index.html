@@ -17,15 +17,27 @@
 
       .container {
         display: grid;
+        min-width: 1000px;
+        min-height: auto;
         align-items: center;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
         grid-gap: 20 px;
+        overflow-x: scroll;
+        /* Enable horizontal scrolling when content overflows */
+        overflow-y: scroll;
+        /* Enable vertical scrolling when content overflows */
+        /* Prevent content from wrapping */
+        scrollbar-width: thin;
+        /* For Firefox */
+        scrollbar-color: transparent transparent;
+        /* For Firefox */
       }
 
       .container-text {
         display: inline-block;
         max-width: 600px;
+        min-width: auto;
         padding: 20px;
         color: white;
         align-items: center;
@@ -49,6 +61,7 @@
         scrollbar-width: thin;
         /* For Firefox */
         scrollbar-color: transparent transparent;
+
         /* For Firefox */
       }
 
@@ -116,6 +129,7 @@
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto;
         grid-gap: 15px;
+        min-width: auto;
       }
 
       .grid img {
@@ -135,6 +149,7 @@
 
       .container-carousel {
         margin-top: 100px;
+        min-width: 900px;
       }
 
       .slider {
